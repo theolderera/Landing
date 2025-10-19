@@ -1,0 +1,1782 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENIOR AGENCY - Хизматрасонии Профессионалии Рақамӣ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --blue-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --green-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --orange-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --purple-gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #f5576c;
+            --text-dark: #2d3748;
+            --text-light: #ffffff;
+            --background: #ffffff;
+            --section-bg: #f7fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --shadow: 0 10px 40px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--background);
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            transform: translateY(-100%);
+            animation: slideDown 0.5s ease forwards 0.5s;
+        }
+
+        @keyframes slideDown {
+            to { transform: translateY(0); }
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 30px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+
+        /* Hero Section */
+        header {
+            position: relative;
+            background: var(--primary-gradient);
+            color: var(--text-light);
+            padding: 180px 0 100px;
+            text-align: center;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,165.3C384,171,480,149,576,133.3C672,117,768,107,864,122.7C960,139,1056,181,1152,181.3C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .tagline {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.6s backwards;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.8s backwards;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+            box-shadow: 0 5px 20px rgba(255,255,255,0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255,255,255,0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            animation: fadeInUp 1s ease 1s backwards;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            font-size: 2rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            width: 60px;
+            height: 60px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-10px) scale(1.1);
+            background: rgba(255,255,255,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: white;
+            padding: 80px 0;
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 20px;
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease backwards;
+        }
+
+        .stat-card:nth-child(1) { animation-delay: 0.1s; }
+        .stat-card:nth-child(2) { animation-delay: 0.2s; }
+        .stat-card:nth-child(3) { animation-delay: 0.3s; }
+        .stat-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .stat-icon {
+            font-size: 3rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #718096;
+            font-weight: 500;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+        }
+
+        section:nth-child(even) {
+            background: var(--section-bg);
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: var(--text-dark);
+            position: relative;
+            padding-bottom: 20px;
+            font-weight: 800;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: var(--primary-gradient);
+            border-radius: 3px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #718096;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #4a5568;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-item:nth-child(1) .feature-icon { color: #667eea; }
+        .feature-item:nth-child(2) .feature-icon { color: #f5576c; }
+        .feature-item:nth-child(3) .feature-icon { color: #4facfe; }
+        .feature-item:nth-child(4) .feature-icon { color: #43e97b; }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease backwards;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+        .service-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:nth-child(1) .service-icon { color: #667eea; }
+        .service-card:nth-child(2) .service-icon { color: #f5576c; }
+        .service-card:nth-child(3) .service-icon { color: #4facfe; }
+        .service-card:nth-child(4) .service-icon { color: #43e97b; }
+        .service-card:nth-child(5) .service-icon { color: #fa709a; }
+        .service-card:nth-child(6) .service-icon { color: #764ba2; }
+        .service-card:nth-child(7) .service-icon { color: #38f9d7; }
+        .service-card:nth-child(8) .service-icon { color: #fee140; }
+        .service-card:nth-child(9) .service-icon { color: #a8edea; }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotateY(360deg);
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #718096;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 300px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .portfolio-item:hover::before {
+            opacity: 0.9;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-overlay p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .portfolio-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Testimonials Section */
+        .testimonials-slider {
+            max-width: 900px;
+            margin: 60px auto 0;
+            position: relative;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            margin: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 3rem;
+            color: white;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #4a5568;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-position {
+            color: #718096;
+        }
+
+        .testimonial-stars {
+            color: #fbbf24;
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card.featured {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .pricing-card.featured::before {
+            content: 'МАШҲУР';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--accent-color);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .pricing-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features i {
+            color: #43e97b;
+            font-size: 1.2rem;
+        }
+
+        /* Contact Form */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateX(10px);
+        }
+
+        .contact-item-icon {
+            font-size: 2rem;
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-item-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 600;
+        }
+
+        .contact-item-content p {
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .contact-item-content a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-item-content a:hover {
+            opacity: 0.8;
+        }
+
+        .contact-form {
+            background: var(--card-bg);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: var(--text-light);
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+
+        .footer-section p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 5px 20px rgba(67, 233, 123, 0.3);
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideDown 0.5s ease;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            display: none;
+            width: 25px;
+            height: 25px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .submit-btn.loading .spinner {
+            display: block;
+        }
+
+        .submit-btn.loading .btn-text {
+            display: none;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .scroll-top.show {
+            display: flex;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+                padding: 30px 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(8px, 8px);
+            }
+
+            .nav-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .nav-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(8px, -8px);
+            }
+
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.3rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                padding: 40px 30px;
+            }
+
+            .contact-form {
+                padding: 30px 20px;
+            }
+
+            header {
+                padding: 150px 0 80px;
+                min-height: auto;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+        }
+
+        /* Animation on Scroll */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">SENIOR AGENCY</a>
+            <ul class="nav-menu">
+                <li><a href="#about">Дар Бораи Мо</a></li>
+                <li><a href="#services">Хизматрасонӣ</a></li>
+                <li><a href="#portfolio">Портфолио</a></li>
+                <li><a href="#testimonials">Фикрҳо</a></li>
+                <li><a href="#contact">Тамос</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header>
+        <div class="container">
+            <div class="hero-content">
+                <div class="logo floating">SENIOR AGENCY</div>
+                <div class="tagline">Хизматрасонии Профессионалии Рақамӣ</div>
+                <p class="hero-description">
+                    Мо бизнеси шуморо ба сатҳи нав мебардорем бо ҳалҳои инноватсионӣ ва хизматрасонии комплексии рақамӣ
+                </p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Лоиҳаро Оғоз Кунед
+                    </a>
+                    <a href="#services" class="btn-secondary">
+                        <i class="fas fa-list"></i>
+                        Хизматрасонӣ
+                    </a>
+                </div>
+                <div class="social-links">
+                    <a href="https://wa.me/992011792525" target="_blank" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://t.me/+992011792525" target="_blank" title="Telegram">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://www.instagram.com/sen1oragency?igsh=MTFqZGtycTlweTZnNQ==" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number" data-target="500">0</div>
+                    <div class="stat-label">Мизоҷони Хурсанд</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="stat-number" data-target="1200">0</div>
+                    <div class="stat-label">Лоиҳаи Анҷомшуда</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">Ҷоизаҳо</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-number" data-target="5">0</div>
+                    <div class="stat-label">Солҳои Таҷриба</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="animate-on-scroll">Дар Бораи Мо</h2>
+            <p class="section-subtitle animate-on-scroll">
+                SENIOR AGENCY - Шарики Боэътимоди Рақамии Шумо
+            </p>
+            <div class="about-content animate-on-scroll">
+                <p>
+                    SENIOR AGENCY як даста аз мутахассисони профессионалӣ мебошад, ки барои пешрафти бизнеси шумо 
+                    дар фазои рақамӣ кор мекунем. Мо ҳалли пурра ва иноватсионӣ барои бизнесҳои хурд, миёна ва 
+                    соҳибкорон пешниҳод мекунем. Бо таҷрибаи васеъ ва донишҳои муосир, мо ба шумо кӯмак мекунем, 
+                    ки дар дунёи рақамӣ муваффақ шавед ва рақобатпазир бошед.
+                </p>
+            </div>
+            <div class="about-features">
+                <div class="feature-item animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Инноватсионӣ</h3>
+                    <p>Истифодаи технологияҳои муосир ва равишҳои нав</p>
+                </div>
+                <div class="feature-item animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Сифат</h3>
+                    <p>Кори баландсифат бо диққати камол ба ҷузъиёт</p>
+                </div>
+                <div class="feature-item animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Кафолат</h3>
+                    <p>Кафолати пурраи сифат ва дастгирии баъдӣ</p>
+                </div>
+                <div class="feature-item animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Суръат</h3>
+                    <p>Иҷрои зуд ва ба вақт супоридани кор</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2 class="animate-on-scroll">Хизматрасонии Мо</h2>
+            <p class="section-subtitle animate-on-scroll">
+                Ҳалҳои пурра барои тараққиёти рақамии бизнеси шумо
+            </p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Идораи Шабакаҳои Иҷтимоӣ</h3>
+                    <p>Сохтан ва идораи профессионалии ҳисобҳои бизнесӣ дар ҳамаи шабакаҳои иҷтимоӣ - Instagram, Facebook, TikTok, LinkedIn ва дигарон бо стратегияи мушаххас.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Дизайни Логотип ва Бренд</h3>
+                    <p>Офаридани логотипи беназир, дизайни ҳувияти корпоративӣ ва дизайни профессионалии профилҳо барои намояндагии яклухти бренди шумо.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Монтажи Видео</h3>
+                    <p>Видеои профессионалӣ ва монтажи креативӣ барои шабакаҳои иҷтимоӣ, реклама, курсҳои таълимӣ ва презентатсияҳои бизнесӣ.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Таргет Реклама</h3>
+                    <p>Идора ва оптимизатсияи кампанияҳои рекламавии ҳадафманд дар ҳамаи шабакаҳои иҷтимоӣ бо таҳлили натиҷаҳо ва ROI.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Сохтани Телеграм Ботҳо</h3>
+                    <p>Таҳияи ботҳои фармоишӣ бо функсионалияти васеъ барои автоматизатсияи алоқа бо мизоҷон ва раванди бизнес.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Сохтани Вебсайт</h3>
+                    <p>Таҳияи вебсайтҳои муосир - шахсӣ, корпоративӣ, landing pages ва интернет-магазинҳо бо дизайни responsive.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Интернет-Магазинҳо</h3>
+                    <p>Насби платформаҳои пурраи тиҷорати электронӣ бо интеграсияи пардохт, идораи маҳсулот ва системаи CRM.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Автоматизатсияи Корхонаҳо</h3>
+                    <p>Ҳалли автоматизатсия, CRM системаҳо, платформаҳои корӣ ва интеграсияи раванди бизнес барои афзоиши самаранокӣ.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Видео Курсҳо</h3>
+                    <p>Тайёр кардани курсҳои таълимии видеоӣ дар бораи маркетинг, бизнес, технологияҳо ва дигар мавзӯъҳо бо платформаи таълимӣ.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="animate-on-scroll">Портфолиои Мо</h2>
+            <p class="section-subtitle animate-on-scroll">
+                Намунаҳое аз корҳои муваффақи мо
+            </p>
+            <div class="portfolio-grid">
+                <div class="portfolio-item animate-on-scroll" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <div class="portfolio-overlay">
+                        <h3>Лоиҳаи Вебсайт</h3>
+                        <p>Вебсайти корпоративӣ</p>
+                    </div>
+                </div>
+                <div class="portfolio-item animate-on-scroll" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <div class="portfolio-overlay">
+                        <h3>Дизайни Бренд</h3>
+                        <p>Ҳувияти корпоративӣ</p>
+                    </div>
+                </div>
+                <div class="portfolio-item animate-on-scroll" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <div class="portfolio-overlay">
+                        <h3>Телеграм Бот</h3>
+                        <p>Бот барои мағозаи онлайн</p>
+                    </div>
+                </div>
+                <div class="portfolio-item animate-on-scroll" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                    <div class="portfolio-overlay">
+                        <h3>Шабакаҳои Иҷтимоӣ</h3>
+                        <p>Кампанияи маркетингӣ</p>
+                    </div>
+                </div>
+                <div class="portfolio-item animate-on-scroll" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                    <div class="portfolio-overlay">
+                        <h3>Интернет-Магазин</h3>
+                        <p>Платформаи тиҷоратӣ</p>
+                    </div>
+                </div>
+                <div class="portfolio-item animate-on-scroll" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                    <div class="portfolio-overlay">
+                        <h3>Монтажи Видео</h3>
+                        <p>Видеои рекламавӣ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="animate-on-scroll">Фикри Мизоҷон</h2>
+            <p class="section-subtitle animate-on-scroll">
+                Он чӣ ки мизоҷони мо дар бораи кори мо мегӯянд
+            </p>
+            <div class="testimonials-slider">
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="testimonial-text">
+                        "SENIOR AGENCY барои бизнеси мо вебсайти аълоӣ сохт. Дизайни муосир ва функсионалияти пурра. 
+                        Баъд аз насби сайт фурӯши мо 3 баробар зиёд шуд. Ташаккур барои кори профессионалӣ!"
+                    </div>
+                    <div class="testimonial-author">Алишер Раҳимов</div>
+                    <div class="testimonial-position">Директори Ширкати "Tech Solutions"</div>
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <div class="container">
+            <h2 class="animate-on-scroll">Пакетҳои Мо</h2>
+            <p class="section-subtitle animate-on-scroll">
+                Интихоб кунед пакетеро, ки ба ниёзҳои шумо мувофиқ аст
+            </p>
+            <div class="pricing-grid">
+                <div class="pricing-card animate-on-scroll">
+                    <div class="pricing-title">СТАНДАРТӢ</div>
+                    <div class="pricing-price">Аз 500$</div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Вебсайти муосир</li>
+                        <li><i class="fas fa-check"></i> Дизайни responsive</li>
+                        <li><i class="fas fa-check"></i> Дастгирӣ 1 мох</li>
+                        <li><i class="fas fa-check"></i> Оптимизатсияи SEO</li>
+                        <li><i class="fas fa-check"></i> Ҳостинг ройгон</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary">Интихоб Кунед</a>
+                </div>
+
+                <div class="pricing-card featured animate-on-scroll">
+                    <div class="pricing-title">ПРОФЕСИОНАЛӢ</div>
+                    <div class="pricing-price">Аз 1000$</div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Ҳама аз пакети Стандартӣ</li>
+                        <li><i class="fas fa-check"></i> Интернет-магазин</li>
+                        <li><i class="fas fa-check"></i> Системаи пардохт</li>
+                        <li><i class="fas fa-check"></i> Дастгирӣ 3 мох</li>
+                        <li><i class="fas fa-check"></i> Таргет реклама</li>
+                        <li><i class="fas fa-check"></i> Идораи контент</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary">Интихоб Кунед</a>
+                </div>
+
+                <div class="pricing-card animate-on-scroll">
+                    <div class="pricing-title">КОРПОРАТИВӢ</div>
+                    <div class="pricing-price">Аз 2000$</div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Ҳама аз пакети Pro</li>
+                        <li><i class="fas fa-check"></i> CRM система</li>
+                        <li><i class="fas fa-check"></i> Телеграм бот</li>
+                        <li><i class="fas fa-check"></i> Дастгирӣ 1 сол</li>
+                        <li><i class="fas fa-check"></i> Автоматизатсия</li>
+                        <li><i class="fas fa-check"></i> Консалтинг</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary">Интихоб Кунед</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="animate-on-scroll">Тамос Бо Мо</h2>
+            <p class="section-subtitle animate-on-scroll">
+                Биёед лоиҳаи шуморо якҷоя офарем
+            </p>
+            <div class="contact-wrapper">
+                <div class="contact-info animate-on-scroll">
+                    <h3>Маълумоти Тамос</h3>
+                    <p style="margin-bottom: 40px; opacity: 0.9;">
+                        Мо ҳамеша омодаем, ки ба саволҳои шумо ҷавоб диҳем ва лоиҳаи шуморо муҳокима кунем.
+                    </p>
+
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-item-content">
+                            <h4>WhatsApp</h4>
+                            <p><a href="https://wa.me/992011792525">+992 011 792 525</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fab fa-telegram"></i>
+                        </div>
+                        <div class="contact-item-content">
+                            <h4>Telegram</h4>
+                            <p><a href="https://t.me/+992011792525">@SeniorAgency</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="contact-item-content">
+                            <h4>Instagram</h4>
+                            <p><a href="https://www.instagram.com/sen1oragency?igsh=MTFqZGtycTlweTZnNQ==">@sen1oragency</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-item-content">
+                            <h4>Вақти Корӣ</h4>
+                            <p>Душанбе - Шанбе: 09:00 - 20:00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form animate-on-scroll">
+                    <div class="success-message" id="successMessage">
+                        <i class="fas fa-check-circle"></i> Маълумоти шумо бомуваффақият ирсол шуд! Мо ба зудӣ бо шумо тамос хоҳем гирифт.
+                    </div>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name"><i class="fas fa-user"></i> Номи Шумо *</label>
+                            <input type="text" id="name" name="name" required placeholder="Номи пурра">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone"><i class="fas fa-phone"></i> Рақами Телефон *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+992 XX XXX XX XX">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="purpose"><i class="fas fa-bullseye"></i> Максади Тамос *</label>
+                            <select id="purpose" name="purpose" required>
+                                <option value="">Интихоб кунед...</option>
+                                <option value="Шабакаҳои иҷтимоӣ">Идораи Шабакаҳои Иҷтимоӣ</option>
+                                <option value="Дизайн">Дизайни Логотип ва Бренд</option>
+                                <option value="Видео">Монтажи Видео</option>
+                                <option value="Реклама">Таргет Реклама</option>
+                                <option value="Телеграм бот">Сохтани Телеграм Бот</option>
+                                <option value="Вебсайт">Сохтани Вебсайт</option>
+                                <option value="Интернет-магазин">Интернет-Магазин</option>
+                                <option value="Автоматизатсия">Автоматизатсия/CRM</option>
+                                <option value="Видео курс">Видео Курсҳо</option>
+                                <option value="Консалтинг">Консалтинги Бизнес</option>
+                                <option value="Дигар">Дигар</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message"><i class="fas fa-comment"></i> Шарҳи Шумо</label>
+                            <textarea id="message" name="message" placeholder="Маълумоти иловагӣ дар бораи лоиҳаи шумо..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <span class="btn-text">
+                                <i class="fas fa-paper-plane"></i> Ирсол Кардан
+                            </span>
+                            <div class="spinner"></div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SENIOR AGENCY</h3>
+                    <p>
+                        Мо як агентии хизматрасонии рақамӣ ҳастем, ки барои муваффақияти шумо 
+                        дар дунёи рақамӣ кор мекунем. Бо мо ба минбаъд ҳаракат кунед!
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/992011792525" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://t.me/+992011792525" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://www.instagram.com/sen1oragency?igsh=MTFqZGtycTlweTZnNQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Хизматрасонӣ</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Идораи SMM</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Дизайни Бренд</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Монтажи Видео</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Сохтани Вебсайт</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Таргет Реклама</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Пайвандҳо</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> Дар Бораи Мо</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Хизматрасонӣ</a></li>
+                        <li><a href="#portfolio"><i class="fas fa-chevron-right"></i> Портфолио</a></li>
+                        <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Фикрҳо</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Тамос</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Тамос</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> +992 011 792 525</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Душанбе, Тоҷикистон</li>
+                        <li><i class="fas fa-clock"></i> Душанбе-Шанбе: 09:00-20:00</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 SENIOR AGENCY. Ҳамаи ҳуқуқҳо ҳифз шудаанд. | Сохташудааст бо ❤️ дар Тоҷикистон</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Animated Counter
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + '+';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    
+                    // Animate counters
+                    if (entry.target.classList.contains('stat-number')) {
+                        animateCounter(entry.target);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.animate-on-scroll, .stat-number').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const purpose = document.getElementById('purpose').value;
+            const message = document.getElementById('message').value;
+            
+            const submitBtn = document.querySelector('.submit-btn');
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+            
+            const whatsappMessage = `🔔 *ПАЁМИ НАВ АЗ ВЕБСАЙТ*%0A%0A` +
+                `👤 *Ном:* ${encodeURIComponent(name)}%0A` +
+                `📱 *Телефон:* ${encodeURIComponent(phone)}%0A` +
+                `🎯 *Максад:* ${encodeURIComponent(purpose)}%0A` +
+                `💬 *Шарҳ:* ${encodeURIComponent(message || 'Надорад')}%0A%0A` +
+                `⏰ *Вақт:* ${new Date().toLocaleString('tg-TJ')}`;
+            
+            const whatsappNumber = '992011792525';
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+            
+            setTimeout(() => {
+                window.open(whatsappURL, '_blank');
+                
+                document.getElementById('successMessage').classList.add('show');
+                document.getElementById('contactForm').reset();
+                
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+                
+                setTimeout(() => {
+                    document.getElementById('successMessage').classList.remove('show');
+                }, 5000);
+            }, 1000);
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 70;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Add loading animation to page
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>
